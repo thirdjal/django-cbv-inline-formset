@@ -1,6 +1,5 @@
 from django.views.generic import CreateView, ListView, UpdateView
-from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from .models import Album
 from .forms import TrackFormSet
 
@@ -12,7 +11,7 @@ class AlbumListView(ListView):
 
 class AlbumCreateView(CreateView):
     model = Album
-    success_url=reverse_lazy('music:album_list')
+    success_url = reverse_lazy('music:album_list')
     fields = '__all__'
 
     def get_context_data(self, **kwargs):
@@ -37,7 +36,7 @@ class AlbumCreateView(CreateView):
 
 class AlbumUpdateView(UpdateView):
     model = Album
-    success_url=reverse_lazy('music:album_list')
+    success_url = reverse_lazy('music:album_list')
     fields = '__all__'
 
     def get_context_data(self, **kwargs):
